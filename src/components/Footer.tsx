@@ -1,0 +1,1 @@
+export default function Footer(){return <footer className="border-t border-line py-8 text-sm text-mute"><div className="wrap flex justify-between flex-wrap gap-2"><span>© {new Date().getFullYear()} Dinesh Kumar Yarragudi</span><span>Hyderabad, India</span></div></footer>}
