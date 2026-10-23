@@ -1,5 +1,5 @@
 // Central config: edit links here. Empty strings render as "not set" instead of fake links.
-export const LINKS = { email:'dineshsqlde@gmail.com', linkedin:'', github:'' }
+export const LINKS = { email:'dineshsqlde@gmail.com', linkedin:'www.linkedin.com/in/dinesh22092001', github:'https://github.com/dineshsqlde-dev' }
 export const LOCATION='Hyderabad, India'
 export const NAV=['About','Services','Work','Experience','Skills','Contact']
 export const SERVICES=[
