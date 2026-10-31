@@ -9,11 +9,32 @@ export const SERVICES=[
  {icon:'DatabaseZap',t:'Database Migration',d:'Migration workflows across SQL Server, MySQL, PostgreSQL and Databricks.'},
  {icon:'ShieldCheck',t:'Data Quality & Reconciliation',d:'Validation, integrity checks and monitoring so numbers can be trusted.'},
  {icon:'BarChart3',t:'Analytics Enablement',d:'Clean, trusted data delivered to Power BI and reporting.'}]
-export const PROJECTS=[
- {id:'fer',name:'FER',full:'Finance Enterprise Reporting',cat:'Reporting',tech:['Microsoft Fabric','Azure Data Factory','PySpark','Fabric Lakehouse','Power BI'],flow:['Source','Bronze','Silver','Gold','Power BI'],d:'A reporting modernization project using medallion architecture, Spark notebooks and dimensional models to prepare trusted data for enterprise reporting.'},
- {id:'snap',name:'Snap2Spark',full:'Database migration platform',cat:'Migration',tech:['Python','SQL Server','MySQL','PostgreSQL','Azure Databricks','PySpark'],flow:['Metadata','Schema','Orchestrate','Convert SPs','Validate'],d:'A migration platform covering metadata extraction, schema migration, orchestration, AI-assisted stored procedure conversion and validation.'},
- {id:'tlo',name:'TLO',full:'Tax Litigation Organizer',cat:'Migration',tech:['SQL Server','PostgreSQL','Azure Data Factory','Metadata-driven pipelines'],flow:['SQL Server','Pipelines','Reconcile','PostgreSQL'],d:'A database migration workflow focused on data integrity, reconciliation, pipeline monitoring and error handling.'},
- {id:'sat',name:'SAT',full:'Smart Analytics Tool',cat:'Analytics',tech:['AWS S3','Amazon RDS for SQL Server','SQL','Stored procedures','Indexing','Query tuning'],flow:['S3','Ingest','Validate','RDS model','Tuned queries'],d:'A data ingestion and analytics solution designed around structured data modelling, validation and query performance.'}]
+export const PROJECTS = [
+  {
+    id: 'fer', name: 'FER', full: 'Finance Enterprise Reporting', cat: 'Reporting',
+    tech: ['Microsoft Fabric', 'Azure Data Factory', 'PySpark', 'Fabric Lakehouse', 'Power BI'],
+    flow: ['Source', 'Bronze', 'Silver', 'Gold', 'Power BI'],
+    d: 'Designed the medallion lakehouse, Spark notebooks and dimensional models that feed trusted enterprise reporting.',
+  },
+  {
+    id: 'snap', name: 'Snap2Spark', full: 'Database migration platform', cat: 'Migration',
+    tech: ['Python', 'SQL Server', 'MySQL', 'PostgreSQL', 'Azure Databricks', 'PySpark'],
+    flow: ['Metadata', 'Schema', 'Orchestrate', 'Convert SPs', 'Validate'],
+    d: 'Built a migration platform covering metadata extraction, schema migration, orchestration, AI-assisted stored procedure conversion and validation.',
+  },
+  {
+    id: 'tlo', name: 'TLO', full: 'Legal case data migration', cat: 'Migration',
+    tech: ['SQL Server', 'PostgreSQL', 'Azure Data Factory', 'Metadata-driven pipelines'],
+    flow: ['SQL Server', 'Pipelines', 'Reconcile', 'PostgreSQL'],
+    d: 'Built metadata-driven pipelines to move SQL Server data to PostgreSQL, with reconciliation, monitoring and error handling to protect data integrity.',
+  },
+  {
+    id: 'sat', name: 'SAT', full: 'Smart Analytics Tool', cat: 'Analytics',
+    tech: ['AWS S3', 'Amazon RDS for SQL Server', 'SQL', 'Stored procedures', 'Indexing', 'Query tuning'],
+    flow: ['S3', 'Ingest', 'Validate', 'RDS model', 'Tuned queries'],
+    d: 'Designed the ingestion, validation and data model behind an analytics solution, then tuned queries and indexes for performance.',
+  },
+]
 export const JOBS=[
  {role:'Software Engineer',co:'Sparity Soft Technologies Pvt. Ltd.',when:'December 2023 – Present'},
  {role:'Trainee Software Engineer',co:'Technology Enthusiasts Pvt. Ltd.',when:'December 2022 – November 2023'}]
