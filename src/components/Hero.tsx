@@ -17,7 +17,7 @@ const technologies = [
 
 function TechnologyBanner() {
   return (
-    <div className="border-y border-white/15 bg-[#0d0d0d] py-5 sm:py-6" aria-label="Technologies">
+    <div className="shrink-0 border-y border-white/15 bg-[#0d0d0d] py-5 sm:py-6" aria-label="Technologies">
       <div className="mx-auto flex max-w-[1440px] items-center gap-5 px-6 sm:gap-8 sm:px-10 md:px-16 lg:px-24">
         <span className="shrink-0 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/45 sm:text-[10px]">
           Tech stack
@@ -47,32 +47,44 @@ function TechnologyBanner() {
 
 export default function Hero() {
   return (
-    <>
+    // The wrapper is exactly one screen tall: the hero takes whatever space is left after the tech banner,
+    // so hero + banner always fill the first screen, whatever the window height or zoom level.
+    <div className="flex min-h-[100svh] flex-col">
       <section
         id="top"
-        className="relative isolate min-h-[760px] overflow-hidden bg-[#050505] text-white md:min-h-[720px]"
+        className="relative isolate flex min-h-[700px] flex-1 overflow-hidden bg-[#050505] text-white md:min-h-[600px]"
       >
-        {/* Portrait */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.1, ease: 'easeOut' }}
-          className="absolute inset-y-0 right-0 -z-10 w-full md:w-[42%]"
-        >
-          <img
-            src={profileImage}
-            alt="Portrait of Dinesh Kumar Yarragudi"
-            className="h-full w-full object-cover object-top opacity-70 md:opacity-95"
-          />
-          {/* Blend left edge into the background (desktop) */}
-          <div className="absolute inset-0 hidden bg-gradient-to-r from-[#050505] via-[#050505]/30 to-transparent md:block" />
-          {/* Fade bottom and top for readability (mobile) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/65 to-[#050505]/20 md:hidden" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent md:hidden" />
-        </motion.div>
+        {/*
+          Portrait.
+          The wrapper is as wide as the site container (max 1440px), so the photo stays beside the text
+          on large or zoomed-out screens instead of drifting to the far edge.
+          On desktop the photo box is sized from its height with a fixed aspect ratio (4/5, change it to
+          match your photo), so zooming the browser in or out no longer changes how the photo is cropped.
+        */}
+        <div className="absolute inset-0 -z-10 mx-auto max-w-[1440px]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.1, ease: 'easeOut' }}
+            className="absolute inset-y-0 right-0 h-full w-full md:w-auto md:max-w-[48%] md:aspect-[4/5]"
+          >
+            <img
+              src={profileImage}
+              alt="Portrait of Dinesh Kumar Yarragudi"
+              className="h-full w-full object-cover object-top opacity-70 md:opacity-95"
+            />
+            {/* Blend left edge into the background (desktop) */}
+            <div className="absolute inset-0 hidden bg-gradient-to-r from-[#050505] via-[#050505]/30 to-transparent md:block" />
+            {/* Soften the right edge on very wide screens, where the photo ends before the screen does */}
+            <div className="absolute inset-0 hidden bg-gradient-to-l from-[#050505] via-transparent to-transparent min-[1441px]:block" />
+            {/* Fade bottom and top for readability (mobile) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/65 to-[#050505]/20 md:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent md:hidden" />
+          </motion.div>
+        </div>
 
         {/* Content */}
-        <div className="relative mx-auto flex min-h-[760px] max-w-[1440px] items-end px-6 pb-14 pt-28 sm:px-10 md:min-h-[720px] md:items-center md:px-16 lg:px-24">
+        <div className="relative mx-auto flex w-full max-w-[1440px] items-end px-6 pb-14 pt-28 sm:px-10 md:items-center md:px-16 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,6 +125,6 @@ export default function Hero() {
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-white/10" />
       </section>
       <TechnologyBanner />
-    </>
+    </div>
   )
 }
